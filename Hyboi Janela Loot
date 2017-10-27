@@ -1,0 +1,13 @@
+ begin
+     Window.Send hold keys("DMO", "Yes", "0", "4")
+     Function.Execute("Human Pause")
+     Window.Send release keys("DMO", "Yes", "0", "4")
+ end
+
+function("Human Pause")
+     begin
+          Variable.Set random number("HumanTime", "100", "300")
+          Macro.Pause("{HumanTime}")
+     end
+function
+ 
