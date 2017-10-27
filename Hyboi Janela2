@@ -1,0 +1,413 @@
+ begin
+     Function.Execute("AntiAuto")
+     Function.Execute("Fechar Janela")
+     Window.Send hold keys("DMO", "Yes", "0", "{<tab>}")
+     Function.Execute("Human Pause")
+     Window.Send release keys("DMO", "Yes", "0", "{<tab>}")
+     Macro.Pause("100")
+     Function.Execute("Heal")
+     if  Color.At coordinate is not (RGB)("{Target1}", "{Target2}", "{Target3}", "754", "56")
+          and
+          Variable.Is equal to("Walk Mode", "Enabled")
+          begin
+               Macro.Execute new passing up to 10 arguments("DMO", "Move2", "no", "Target1", "{Target1}", "Target2", "{Target2}", "Target3", "{Target3}", "WalkColorR", "{WalkColorR}", "WalkColorG", "{WalkColorG}", "WalkColorB", "{WalkColorB}", "", "", "", "", "", "", "", "")
+          end
+     // Here , you write down same x co ordinate and y co ordinate from part 1
+     if  Color.At coordinate is (RGB)("{Target1}", "{Target2}", "{Target3}", "754", "56")
+          begin loop()
+               Window.Send hold keys("DMO", "Yes", "0", "{<f2>}")
+               Function.Execute("Human Pause")
+               Window.Send release keys("DMO", "Yes", "0", "{<f2>}")
+               Function.Execute("Human Pause")
+               Window.Send hold keys("DMO", "Yes", "0", "1")
+               Function.Execute("Human Pause")
+               Window.Send release keys("DMO", "Yes", "0", "1")
+               Function.Execute("Human Pause")
+               Window.Send hold keys("DMO", "Yes", "0", "{<f1>}")
+               Function.Execute("Human Pause")
+               Window.Send release keys("DMO", "Yes", "0", "{<f1>}")
+               Function.Execute("Heal")
+               Function.Execute("AntiAuto")
+               Function.Execute("Fechar Janela")
+               // Here , set RGB for last bits of HP bar of target digimon so that it switches faster.
+               if  Color.At coordinate is not (RGB)("133", "26", "19", "569", "55")
+                    begin
+                         // Function.Execute("Fadiga Check")
+                         Macro.Restart("no")
+                    end
+          end
+ end
+ // Here , you write down same x co ordinate and y co ordinate from part 1
+ if  Color.At coordinate is (RGB)("164", "0", "29", "564", "82")
+     begin loop()
+          Window.Send hold keys("DMO", "Yes", "0", "1")
+          Function.Execute("Human Pause")
+          Window.Send release keys("DMO", "Yes", "0", "1")
+          Function.Execute("Human Pause")
+          Window.Send hold keys("DMO", "Yes", "0", "{<f2>}")
+          Function.Execute("Human Pause")
+          Window.Send release keys("DMO", "Yes", "0", "{<f2>}")
+          Function.Execute("Human Pause")
+          Window.Send hold keys("DMO", "Yes", "0", "{<f1>}")
+          Function.Execute("Human Pause")
+          Window.Send release keys("DMO", "Yes", "0", "{<f1>}")
+          Function.Execute("Heal")
+          Function.Execute("AntiAuto")
+          Function.Execute("Fechar Janela")
+          // Here , set RGB for last bits of HP bar of target digimon so that it switches faster.
+          if  Color.At coordinate is not (RGB)("133", "26", "19", "569", "55")
+               begin
+                    // Function.Execute("Fadiga Check")
+                    Macro.Restart("no")
+               end
+     end
+ // Event Gatomons
+ if  Color.At coordinate is (RGB)("244", "245", "249", "755", "65")
+     begin loop()
+          Window.Send hold keys("DMO", "Yes", "0", "1")
+          Function.Execute("Human Pause")
+          Window.Send release keys("DMO", "Yes", "0", "1")
+          Function.Execute("Human Pause")
+          Window.Send hold keys("DMO", "Yes", "0", "{<f2>}")
+          Function.Execute("Human Pause")
+          Window.Send release keys("DMO", "Yes", "0", "{<f2>}")
+          Function.Execute("Human Pause")
+          Window.Send hold keys("DMO", "Yes", "0", "{<f1>}")
+          Function.Execute("Human Pause")
+          Window.Send release keys("DMO", "Yes", "0", "{<f1>}")
+          Function.Execute("Heal")
+          Function.Execute("AntiAuto")
+          Function.Execute("Fechar Janela")
+          // Here , set RGB for last bits of HP bar of target digimon so that it switches faster.
+          if  Color.At coordinate is not (RGB)("133", "26", "19", "569", "55")
+               begin
+                    // Function.Execute("Fadiga Check")
+                    Macro.Restart("no")
+               end
+     end
+
+function("Human Pause")
+     begin
+          Variable.Set random number("HumanTime", "100", "300")
+          Macro.Pause("{HumanTime}")
+     end
+function
+
+function("Heal")
+     // RGB for using item at F7 slot , i use this for hp disks
+     if  Color.At coordinate is not (RGB)("216", "65", "54", "143", "128")
+          begin
+               Window.Send hold keys("DMO", "Yes", "0", "{<f7>}")
+               Function.Execute("Human Pause")
+               Window.Send release keys("DMO", "Yes", "0", "{<f7>}")
+          end
+     // RGB for using item at 7 slot , i use this for hp food
+     if  Color.At coordinate is not (RGB)("216", "65", "54", "189", "128")
+          begin
+               Window.Send hold keys("DMO", "Yes", "0", "7")
+               Function.Execute("Human Pause")
+               Window.Send release keys("DMO", "Yes", "0", "7")
+          end
+     // RGB for using item at 8 slot , i use this for tamer ds vitamin
+     if  Color.At coordinate is not (RGB)("15", "241", "255", "114", "68")
+          begin
+               Window.Send hold keys("DMO", "Yes", "0", "8")
+               Function.Execute("Human Pause")
+               Window.Send release keys("DMO", "Yes", "0", "8")
+               // RGB for using item at f8 slot , i use this for ds disk
+               if  Color.At coordinate is not (RGB)("28", "239", "255", "135", "69")
+                    begin
+                         Window.Send hold keys("DMO", "Yes", "0", "{<f8>}")
+                         Function.Execute("Human Pause")
+                         Window.Send release keys("DMO", "Yes", "0", "{<f8>}")
+                    end
+          end
+function
+ // function("Fadiga Check")
+ //  if  Color.At coordinate is (RGB)("255", "175", "0", "203", "53")
+ //    begin
+ //      Macro.Execute new("DMO", "Fadiga", "Yes")
+ // end
+ // function
+
+function("AntiAuto")
+     begin
+          if  Color.Pixel pattern can be located on screen("13,77,186,0,110,9,61,169,0,180,18,95,192,200,-290,2,59,169,0,110,10,63,171,0,180,11,72,177", "0")
+               begin
+                    Color.Wait for and locate pixel pattern("13,77,186,0,110,9,61,169,0,180,18,95,192,200,-290,2,59,169,0,110,10,63,171,0,180,11,72,177", "10", "x", "y")
+                    Variable.Evaluate (Math)("{y}+45", "y1")
+                    Variable.Evaluate (Math)("{y}+55", "y2")
+                    Variable.Evaluate (Math)("{y}+65", "y3")
+                    Variable.Evaluate (Math)("{x}+10", "x4")
+                    Variable.Evaluate (Math)("{x}-10", "x5")
+                    Variable.Evaluate (Math)("{x}-13", "xIcon1")
+                    Variable.Evaluate (Math)("{x}+37", "xIcon2")
+                    Variable.Evaluate (Math)("{x}+87", "xIcon3")
+                    Variable.Evaluate (Math)("{x}+137", "xIcon4")
+                    Variable.Evaluate (Math)("{x}+187", "xIcon5")
+                    Variable.Evaluate (Math)("{y}+145", "yTopRow")
+                    Variable.Evaluate (Math)("{y}+195", "yBottomRow")
+                    Color.Get color at coordinate (RGB)("{x}", "{y1}", "r1", "g1", "b1")
+                    Color.Get color at coordinate (RGB)("{x}", "{y2}", "r2", "g2", "b2")
+                    Color.Get color at coordinate (RGB)("{x}", "{y3}", "r3", "g3", "b3")
+                    Color.Get color at coordinate (RGB)("{x4}", "{y2}", "r4", "g4", "b4")
+                    Color.Get color at coordinate (RGB)("{x5}", "{y2}", "r5", "g5", "b5")
+                    Macro.Pause("50")
+                    if  Color.Near coordinate is within (RGB range)("{r1}", "{g1}", "{b1}", "5", "{xIcon1}", "{yTopRow}", "11")
+                         and
+                         Color.Near coordinate is within (RGB range)("{r2}", "{g2}", "{b2}", "5", "{xIcon1}", "{yTopRow}", "11")
+                         and
+                         Color.Near coordinate is within (RGB range)("{r3}", "{g3}", "{b3}", "5", "{xIcon1}", "{yTopRow}", "11")
+                         and
+                         Color.Near coordinate is within (RGB range)("{r4}", "{g4}", "{b4}", "5", "{xIcon1}", "{yTopRow}", "11")
+                         and
+                         Color.Near coordinate is within (RGB range)("{r5}", "{g5}", "{b5}", "5", "{xIcon1}", "{yTopRow}", "11")
+                         begin
+                              Function.Execute("Human Pause")
+                              Mouse.Click at coordinate("{xIcon1}", "{yTopRow}", "Left")
+                         end
+                    Macro.Pause("50")
+                    if  Color.Near coordinate is within (RGB range)("{r1}", "{g1}", "{b1}", "5", "{xIcon2}", "{yTopRow}", "11")
+                         and
+                         Color.Near coordinate is within (RGB range)("{r2}", "{g2}", "{b2}", "5", "{xIcon2}", "{yTopRow}", "11")
+                         and
+                         Color.Near coordinate is within (RGB range)("{r3}", "{g3}", "{b3}", "5", "{xIcon2}", "{yTopRow}", "11")
+                         and
+                         Color.Near coordinate is within (RGB range)("{r4}", "{g4}", "{b4}", "5", "{xIcon2}", "{yTopRow}", "11")
+                         and
+                         Color.Near coordinate is within (RGB range)("{r5}", "{g5}", "{b5}", "5", "{xIcon2}", "{yTopRow}", "11")
+                         begin
+                              Function.Execute("Human Pause")
+                              Mouse.Click at coordinate("{xIcon2}", "{yTopRow}", "Left")
+                         end
+                    Macro.Pause("50")
+                    if  Color.Near coordinate is within (RGB range)("{r1}", "{g1}", "{b1}", "5", "{xIcon3}", "{yTopRow}", "11")
+                         and
+                         Color.Near coordinate is within (RGB range)("{r2}", "{g2}", "{b2}", "5", "{xIcon3}", "{yTopRow}", "11")
+                         and
+                         Color.Near coordinate is within (RGB range)("{r3}", "{g3}", "{b3}", "5", "{xIcon3}", "{yTopRow}", "11")
+                         and
+                         Color.Near coordinate is within (RGB range)("{r4}", "{g4}", "{b4}", "5", "{xIcon3}", "{yTopRow}", "11")
+                         and
+                         Color.Near coordinate is within (RGB range)("{r5}", "{g5}", "{b5}", "5", "{xIcon3}", "{yTopRow}", "11")
+                         begin
+                              Function.Execute("Human Pause")
+                              Mouse.Click at coordinate("{xIcon3}", "{yTopRow}", "Left")
+                         end
+                    Macro.Pause("50")
+                    if  Color.Near coordinate is within (RGB range)("{r1}", "{g1}", "{b1}", "5", "{xIcon4}", "{yTopRow}", "11")
+                         and
+                         Color.Near coordinate is within (RGB range)("{r2}", "{g2}", "{b2}", "5", "{xIcon4}", "{yTopRow}", "11")
+                         and
+                         Color.Near coordinate is within (RGB range)("{r3}", "{g3}", "{b3}", "5", "{xIcon4}", "{yTopRow}", "11")
+                         and
+                         Color.Near coordinate is within (RGB range)("{r4}", "{g4}", "{b4}", "5", "{xIcon4}", "{yTopRow}", "11")
+                         and
+                         Color.Near coordinate is within (RGB range)("{r5}", "{g5}", "{b5}", "5", "{xIcon4}", "{yTopRow}", "11")
+                         begin
+                              Function.Execute("Human Pause")
+                              Mouse.Click at coordinate("{xIcon4}", "{yTopRow}", "Left")
+                         end
+                    Macro.Pause("50")
+                    if  Color.Near coordinate is within (RGB range)("{r1}", "{g1}", "{b1}", "5", "{xIcon5}", "{yTopRow}", "11")
+                         and
+                         Color.Near coordinate is within (RGB range)("{r2}", "{g2}", "{b2}", "5", "{xIcon5}", "{yTopRow}", "11")
+                         and
+                         Color.Near coordinate is within (RGB range)("{r3}", "{g3}", "{b3}", "5", "{xIcon5}", "{yTopRow}", "11")
+                         and
+                         Color.Near coordinate is within (RGB range)("{r4}", "{g4}", "{b4}", "5", "{xIcon5}", "{yTopRow}", "11")
+                         and
+                         Color.Near coordinate is within (RGB range)("{r5}", "{g5}", "{b5}", "5", "{xIcon5}", "{yTopRow}", "11")
+                         begin
+                              Function.Execute("Human Pause")
+                              Mouse.Click at coordinate("{xIcon5}", "{yTopRow}", "Left")
+                         end
+                    Macro.Pause("50")
+                    if  Color.Near coordinate is within (RGB range)("{r1}", "{g1}", "{b1}", "5", "{xIcon1}", "{yBottomRow}", "11")
+                         and
+                         Color.Near coordinate is within (RGB range)("{r2}", "{g2}", "{b2}", "5", "{xIcon1}", "{yBottomRow}", "11")
+                         and
+                         Color.Near coordinate is within (RGB range)("{r3}", "{g3}", "{b3}", "5", "{xIcon1}", "{yBottomRow}", "11")
+                         and
+                         Color.Near coordinate is within (RGB range)("{r4}", "{g4}", "{b4}", "5", "{xIcon1}", "{yBottomRow}", "11")
+                         and
+                         Color.Near coordinate is within (RGB range)("{r5}", "{g5}", "{b5}", "5", "{xIcon1}", "{yBottomRow}", "11")
+                         begin
+                              Function.Execute("Human Pause")
+                              Mouse.Click at coordinate("{xIcon1}", "{yBottomRow}", "Left")
+                         end
+                    Macro.Pause("50")
+                    if  Color.Near coordinate is within (RGB range)("{r1}", "{g1}", "{b1}", "5", "{xIcon2}", "{yBottomRow}", "11")
+                         and
+                         Color.Near coordinate is within (RGB range)("{r2}", "{g2}", "{b2}", "5", "{xIcon2}", "{yBottomRow}", "11")
+                         and
+                         Color.Near coordinate is within (RGB range)("{r3}", "{g3}", "{b3}", "5", "{xIcon2}", "{yBottomRow}", "11")
+                         and
+                         Color.Near coordinate is within (RGB range)("{r4}", "{g4}", "{b4}", "5", "{xIcon2}", "{yBottomRow}", "11")
+                         and
+                         Color.Near coordinate is within (RGB range)("{r5}", "{g5}", "{b5}", "5", "{xIcon2}", "{yBottomRow}", "11")
+                         begin
+                              Function.Execute("Human Pause")
+                              Mouse.Click at coordinate("{xIcon2}", "{yBottomRow}", "Left")
+                         end
+                    Macro.Pause("50")
+                    if  Color.Near coordinate is within (RGB range)("{r1}", "{g1}", "{b1}", "5", "{xIcon3}", "{yBottomRow}", "11")
+                         and
+                         Color.Near coordinate is within (RGB range)("{r2}", "{g2}", "{b2}", "5", "{xIcon3}", "{yBottomRow}", "11")
+                         and
+                         Color.Near coordinate is within (RGB range)("{r3}", "{g3}", "{b3}", "5", "{xIcon3}", "{yBottomRow}", "11")
+                         and
+                         Color.Near coordinate is within (RGB range)("{r4}", "{g4}", "{b4}", "5", "{xIcon3}", "{yBottomRow}", "11")
+                         and
+                         Color.Near coordinate is within (RGB range)("{r5}", "{g5}", "{b5}", "5", "{xIcon3}", "{yBottomRow}", "11")
+                         begin
+                              Function.Execute("Human Pause")
+                              Mouse.Click at coordinate("{xIcon3}", "{yBottomRow}", "Left")
+                         end
+                    Macro.Pause("50")
+                    if  Color.Near coordinate is within (RGB range)("{r1}", "{g1}", "{b1}", "5", "{xIcon4}", "{yBottomRow}", "11")
+                         and
+                         Color.Near coordinate is within (RGB range)("{r2}", "{g2}", "{b2}", "5", "{xIcon4}", "{yBottomRow}", "11")
+                         and
+                         Color.Near coordinate is within (RGB range)("{r3}", "{g3}", "{b3}", "5", "{xIcon4}", "{yBottomRow}", "11")
+                         and
+                         Color.Near coordinate is within (RGB range)("{r4}", "{g4}", "{b4}", "5", "{xIcon4}", "{yBottomRow}", "11")
+                         and
+                         Color.Near coordinate is within (RGB range)("{r5}", "{g5}", "{b5}", "5", "{xIcon4}", "{yBottomRow}", "11")
+                         begin
+                              Function.Execute("Human Pause")
+                              Mouse.Click at coordinate("{xIcon4}", "{yBottomRow}", "Left")
+                         end
+                    Macro.Pause("50")
+                    if  Color.Near coordinate is within (RGB range)("{r1}", "{g1}", "{b1}", "5", "{xIcon5}", "{yBottomRow}", "11")
+                         and
+                         Color.Near coordinate is within (RGB range)("{r2}", "{g2}", "{b2}", "5", "{xIcon5}", "{yBottomRow}", "11")
+                         and
+                         Color.Near coordinate is within (RGB range)("{r3}", "{g3}", "{b3}", "5", "{xIcon5}", "{yBottomRow}", "11")
+                         and
+                         Color.Near coordinate is within (RGB range)("{r4}", "{g4}", "{b4}", "5", "{xIcon5}", "{yBottomRow}", "11")
+                         and
+                         Color.Near coordinate is within (RGB range)("{r5}", "{g5}", "{b5}", "5", "{xIcon5}", "{yBottomRow}", "11")
+                         begin
+                              Function.Execute("Human Pause")
+                              Mouse.Click at coordinate("{xIcon5}", "{yBottomRow}", "Left")
+                         end
+                    Macro.Pause("50")
+               end
+     end
+function
+
+function("Fechar Janela")
+     begin
+          // Fechar Loja
+          if  Color.At coordinate is (RGB)("0", "21", "216", "831", "297")
+               and
+               Color.At coordinate is (RGB)("1", "123", "126", "436", "192")
+               and
+               Color.At coordinate is (RGB)("30", "29", "76", "784", "124")
+               begin
+                    Window.Send hold keys("DMO", "Yes", "0", "{<esc>}")
+                    Macro.Pause("1")
+                    Window.Send release keys("DMO", "Yes", "0", "{<esc>}")
+               end
+          // Fechar Mapa
+          if  Color.At coordinate is (RGB)("191", "191", "191", "492", "566")
+               and
+               Color.At coordinate is (RGB)("78", "92", "97", "719", "363")
+               and
+               Color.At coordinate is (RGB)("101", "101", "101", "874", "156")
+               begin
+                    Window.Send hold keys("DMO", "Yes", "0", "{<esc>}")
+                    Macro.Pause("1")
+                    Window.Send release keys("DMO", "Yes", "0", "{<esc>}")
+               end
+          // Fechar Janela de Tamer
+          if  Color.At coordinate is (RGB)("233", "117", "41", "358", "370")
+               and
+               Color.At coordinate is (RGB)("224", "70", "65", "364", "288")
+               and
+               Color.At coordinate is (RGB)("46", "57", "197", "167", "361")
+               begin
+                    Window.Send hold keys("DMO", "Yes", "0", "{<esc>}")
+                    Macro.Pause("1")
+                    Window.Send release keys("DMO", "Yes", "0", "{<esc>}")
+               end
+          // Fechar Janela de Digimon
+          if  Color.At coordinate is (RGB)("193", "193", "193", "273", "166")
+               and
+               Color.At coordinate is (RGB)("132", "113", "96", "263", "108")
+               and
+               Color.At coordinate is (RGB)("132", "113", "96", "339", "110")
+               begin
+                    Window.Send hold keys("DMO", "Yes", "0", "{<esc>}")
+                    Macro.Pause("1")
+                    Window.Send release keys("DMO", "Yes", "0", "{<esc>}")
+               end
+          // Fechar Enciclopedia
+          if  Color.At coordinate is (RGB)("40", "40", "40", "697", "195")
+               and
+               Color.At coordinate is (RGB)("0", "88", "174", "606", "307")
+               and
+               Color.At coordinate is (RGB)("46", "46", "46", "855", "262")
+               begin
+                    Window.Send hold keys("DMO", "Yes", "0", "{<esc>}")
+                    Macro.Pause("1")
+                    Window.Send release keys("DMO", "Yes", "0", "{<esc>}")
+               end
+          // Fechar Guild
+          if  Color.At coordinate is (RGB)("99", "99", "99", "258", "119")
+               and
+               Color.At coordinate is (RGB)("255", "255", "255", "529", "115")
+               and
+               Color.At coordinate is (RGB)("82", "82", "82", "534", "326")
+               begin
+                    Window.Send hold keys("DMO", "Yes", "0", "{<esc>}")
+                    Macro.Pause("1")
+                    Window.Send release keys("DMO", "Yes", "0", "{<esc>}")
+               end
+          // Fechar Tela de Evento
+          if  Color.At coordinate is (RGB)("0", "233", "255", "601", "326")
+               and
+               Color.At coordinate is (RGB)("252", "240", "0", "1101", "158")
+               and
+               Color.At coordinate is (RGB)("0", "241", "255", "1056", "261")
+               begin
+                    Window.Send hold keys("DMO", "Yes", "0", "{<esc>}")
+                    Macro.Pause("1")
+                    Window.Send release keys("DMO", "Yes", "0", "{<esc>}")
+               end
+          // Fechar Tela de Seal
+          if  Color.At coordinate is (RGB)("158", "255", "255", "1002", "127")
+               and
+               Color.At coordinate is (RGB)("255", "243", "0", "1045", "91")
+               and
+               Color.At coordinate is (RGB)("0", "255", "255", "575", "515")
+               begin
+                    Window.Send hold keys("DMO", "Yes", "0", "{<esc>}")
+                    Macro.Pause("1")
+                    Window.Send release keys("DMO", "Yes", "0", "{<esc>}")
+               end
+          // Fechar Tela de Options
+          if  Color.At coordinate is (RGB)("13", "77", "186", "602", "235")
+               and
+               Color.At coordinate is (RGB)("24", "24", "24", "751", "316")
+               and
+               Color.At coordinate is (RGB)("8", "59", "167", "796", "296")
+               begin
+                    Window.Send hold keys("DMO", "Yes", "0", "{<esc>}")
+                    Macro.Pause("1")
+                    Window.Send release keys("DMO", "Yes", "0", "{<esc>}")
+               end
+          // Fechar Amigos
+          if  Color.At coordinate is (RGB)("48", "48", "48", "657", "286")
+               and
+               Color.At coordinate is (RGB)("0", "0", "0", "861", "300")
+               and
+               Color.At coordinate is (RGB)("48", "48", "48", "635", "288")
+               begin
+                    Window.Send hold keys("DMO", "Yes", "0", "{<esc>}")
+                    Macro.Pause("1")
+                    Window.Send release keys("DMO", "Yes", "0", "{<esc>}")
+               end
+     end
+function
