@@ -1,4 +1,4 @@
 # hayase-bot
-Advanced bot based on Hiboy Scritpts, with auto-moving and antimacro.
+Advanced bot based on Hiboy Scripts with auto-moving and antimacro features
 
->>>> Currently not working, need some updates and revisions. <<<<
+>>>> Currently not working, need some updates and revisions <<<<
