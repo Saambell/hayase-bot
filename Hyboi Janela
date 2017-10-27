@@ -1,0 +1,44 @@
+begin
+     // Function.Execute("Calculo da Janela")
+     // Variable.Set("Walk Mode", "Disabled")
+     if  Window.Confirmation dialog gets confirmed by user("Deseja ativar o movimento?")
+          begin
+               Variable.Set("Walk Mode", "Enabled")
+               Window.Display message box("Por favor configure o RGB do digimon com o mouse", "Yes")
+               Macro.Pause("1")
+               Window.Bring to front("DMO", "yes")
+               when  Mouse.Button is pressed("Left")
+                    begin
+                         Mouse.Save coordinate to variable("XColor", "YColor")
+                         Color.Get color at coordinate (RGB)("{XColor}", "{YColor}", "WalkColorR", "WalkColorG", "WalkColorB")
+                    end
+          end
+     Window.Bring to front("DMO", "yes")
+     Macro.Pause("100")
+     // Here , you first open the import window , then take a picture while targetting any digimon in the game , you then click on the digimon picture in the target window
+     // then write down x coordinate and y coordinate in those 2 spaces .
+     Function.Execute("Human Pause")
+     Color.Limit area of interest to window("DMO", "Yes")
+     Function.Execute("Human Pause")
+     Color.Get color at coordinate (RGB)("754", "56", "Target1", "Target2", "Target3")
+     Function.Execute("Human Pause")
+     // Here , you write down the category and then the name of the second part of the code that is posted after this first part.
+     Macro.Execute new passing up to 10 arguments("DMO TESTES", "Hyboi Janela2", "yes", "Target1", "{Target1}", "Target2", "{Target2}", "Target3", "{Target3}", "Walk Mode", "{Walk Mode}", "WalkColorR", "{WalkColorR}", "WalkColorG", "{WalkColorG}", "WalkColorB", "{WalkColorB}", "", "", "", "", "", "")
+ end
+
+function("Human Pause")
+     begin
+          Variable.Set random number("HumanTime", "100", "300")
+          Macro.Pause("{HumanTime}")
+     end
+function
+
+function("Calculo da Janela")
+     begin
+          Window.Get size("DMO", "Yes", "width", "height")
+          Macro.Pause("1")
+          Variable.Evaluate (Math)("{width} / 2", "WX")
+          Macro.Pause("1")
+          Variable.Evaluate (Math)("{height} / 2", "WY")
+     end
+function
